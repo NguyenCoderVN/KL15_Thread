@@ -2,7 +2,7 @@ fun main() {
     val a = 2
     val b = 4
     val result: Int = sum(a, b)
-    println("Result of (2 + 4)*5 is $result")
+    println("Result of (2 + 4) * 5 is $result")
 }
 
 fun sum(a: Int, b: Int): Int {
