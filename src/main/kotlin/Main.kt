@@ -1,40 +1,16 @@
-fun main(args: Array<String>) {
-    println("Hello World! ${getThreadName()}")
-    val myRunnable = MyRunnable()
-    val myThread = Thread(myRunnable, "New_Thread")
-    myThread.start()
-    sleepThread(6)
-    myRunnable.stopThread()
-    println("The end ${getThreadName()}")
+fun main() {
+    val a = 5
+    val b = 5
+    val result: Int = sum(a, b)
+    println("Result of (a + b)*5 is $result")
 }
 
-class MyRunnable : Runnable {
-    private var check = false
-
-    fun stopThread() {
-        check = true
-    }
-
-    private fun stillRunning() = !check
-
-    override fun run() {
-        var i = 0
-        while (stillRunning()) {
-            println("Runnable run step $i ${getThreadName()}")
-            sleepThread(2)
-            i += 1
-        }
-    }
+fun sum(a: Int, b: Int): Int {
+    val c = a + b
+    val d = multi(c, 5)
+    return c
 }
 
-private fun getThreadName(): String {
-    return "at thread name ${Thread.currentThread().name}"
-}
-
-private fun sleepThread(second: Long) {
-    try {
-        Thread.sleep(second * 1000L)
-    } catch (e: InterruptedException) {
-        e.printStackTrace()
-    }
+fun multi(x: Int, y: Int): Int {
+    return x * y
 }
